@@ -1,0 +1,241 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2025-09-18 10:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "member_type",
+  "column_break_3",
+  "profile_picture",
+  "section_break_5",
+  "first_name",
+  "last_name",
+  "email",
+  "phone",
+  "column_break_10",
+  "date_of_birth",
+  "address",
+  "section_break_13",
+  "membership_start_date",
+  "membership_end_date",
+  "membership_status",
+  "column_break_17",
+  "max_books_allowed",
+  "current_books_issued",
+  "total_fines",
+  "section_break_21",
+  "access_level",
+  "barcode",
+  "emergency_contact",
+  "emergency_name",
+  "emergency_phone",
+  "section_break_27",
+  "preferences"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "MEM-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "member_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Member Type",
+   "options": "Student\nFaculty\nStaff\nExternal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "profile_picture",
+   "fieldtype": "Attach Image",
+   "label": "Profile Picture"
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Personal Information"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "unique": 1
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break",
+   "label": "Membership Details"
+  },
+  {
+   "fieldname": "membership_start_date",
+   "fieldtype": "Date",
+   "label": "Membership Start Date"
+  },
+  {
+   "fieldname": "membership_end_date",
+   "fieldtype": "Date",
+   "label": "Membership End Date"
+  },
+  {
+   "default": "Active",
+   "fieldname": "membership_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Membership Status",
+   "options": "Active\nSuspended\nExpired\nCancelled"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "5",
+   "fieldname": "max_books_allowed",
+   "fieldtype": "Int",
+   "label": "Max Books Allowed"
+  },
+  {
+   "fieldname": "current_books_issued",
+   "fieldtype": "Int",
+   "label": "Current Books Issued",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_fines",
+   "fieldtype": "Currency",
+   "label": "Total Fines",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break",
+   "label": "Additional Details"
+  },
+  {
+   "default": "Basic",
+   "fieldname": "access_level",
+   "fieldtype": "Select",
+   "label": "Access Level",
+   "options": "Basic\nPremium\nVIP"
+  },
+  {
+   "fieldname": "barcode",
+   "fieldtype": "Data",
+   "label": "Barcode",
+   "read_only": 1
+  },
+  {
+   "fieldname": "emergency_contact",
+   "fieldtype": "Section Break",
+   "label": "Emergency Contact"
+  },
+  {
+   "fieldname": "emergency_name",
+   "fieldtype": "Data",
+   "label": "Emergency Contact Name"
+  },
+  {
+   "fieldname": "emergency_phone",
+   "fieldtype": "Data",
+   "label": "Emergency Contact Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "section_break_27",
+   "fieldtype": "Section Break",
+   "label": "Preferences"
+  },
+  {
+   "fieldname": "preferences",
+   "fieldtype": "Table",
+   "label": "Member Preferences",
+   "options": "Member Preferences"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-18 07:50:20.923852",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Library Member",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Librarian",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Library Member",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "first_name",
+ "track_changes": 1
+}

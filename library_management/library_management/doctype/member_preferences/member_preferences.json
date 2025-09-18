@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "creation": "2025-09-18 10:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "preference_type",
+  "preference_value",
+  "priority"
+ ],
+ "fields": [
+  {
+   "fieldname": "preference_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Preference Type",
+   "options": "Genre\nAuthor\nLanguage\nFormat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "preference_value",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Preference Value",
+   "reqd": 1
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "High\nMedium\nLow"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-18 07:50:51.002000",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Member Preferences",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

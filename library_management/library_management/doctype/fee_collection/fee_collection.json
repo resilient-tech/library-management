@@ -1,0 +1,240 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2025-09-18 10:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "member",
+  "payment_date",
+  "payment_type",
+  "column_break_5",
+  "total_amount",
+  "payment_method",
+  "reference_number",
+  "section_break_9",
+  "membership_fee",
+  "late_fee",
+  "damage_fee",
+  "other_fee",
+  "column_break_14",
+  "fine_amount",
+  "discount_amount",
+  "net_amount",
+  "section_break_18",
+  "fine_details",
+  "section_break_20",
+  "collected_by",
+  "remarks",
+  "payment_status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "PAY-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Library Member",
+   "options": "Library Member",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Payment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Payment Type",
+   "options": "Fine Payment\nMembership Fee\nDeposit\nDamage Fee\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "default": "Cash",
+   "fieldname": "payment_method",
+   "fieldtype": "Select",
+   "label": "Payment Method",
+   "options": "Cash\nCard\nUPI\nNet Banking\nCheque\nDemand Draft"
+  },
+  {
+   "fieldname": "reference_number",
+   "fieldtype": "Data",
+   "label": "Reference Number"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break",
+   "label": "Amount Breakdown"
+  },
+  {
+   "default": "0",
+   "fieldname": "membership_fee",
+   "fieldtype": "Currency",
+   "label": "Membership Fee"
+  },
+  {
+   "default": "0",
+   "fieldname": "late_fee",
+   "fieldtype": "Currency",
+   "label": "Late Fee"
+  },
+  {
+   "default": "0",
+   "fieldname": "damage_fee",
+   "fieldtype": "Currency",
+   "label": "Damage Fee"
+  },
+  {
+   "default": "0",
+   "fieldname": "other_fee",
+   "fieldtype": "Currency",
+   "label": "Other Fee"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "fine_amount",
+   "fieldtype": "Currency",
+   "label": "Fine Amount"
+  },
+  {
+   "default": "0",
+   "fieldname": "discount_amount",
+   "fieldtype": "Currency",
+   "label": "Discount Amount"
+  },
+  {
+   "fieldname": "net_amount",
+   "fieldtype": "Currency",
+   "label": "Net Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break",
+   "label": "Fine Details"
+  },
+  {
+   "fieldname": "fine_details",
+   "fieldtype": "Table",
+   "label": "Fine Details",
+   "options": "Fee Collection Fine Detail"
+  },
+  {
+   "fieldname": "section_break_20",
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "collected_by",
+   "fieldtype": "Link",
+   "label": "Collected By",
+   "options": "User"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  },
+  {
+   "default": "Paid",
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Payment Status",
+   "options": "Paid\nPartial\nRefunded\nCancelled"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Fee Collection",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-18 07:50:16.550257",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Fee Collection",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Librarian",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Library Member",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "member",
+ "track_changes": 1
+}

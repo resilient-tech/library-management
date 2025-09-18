@@ -5,6 +5,8 @@ app_description = "Advanced Library Management Platform"
 app_email = "info@resilient.tech"
 app_license = "mit"
 
+export_python_type_annotations = True
+
 # Apps
 # ------------------
 
@@ -236,4 +238,3 @@ app_license = "mit"
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-

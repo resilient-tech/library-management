@@ -1,0 +1,295 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2025-09-18 10:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "isbn",
+  "title",
+  "subtitle",
+  "column_break_5",
+  "book_cover",
+  "section_break_7",
+  "authors",
+  "section_break_9",
+  "publisher",
+  "publication_date",
+  "edition",
+  "column_break_13",
+  "language",
+  "book_category",
+  "subcategory",
+  "section_break_17",
+  "tags",
+  "description",
+  "section_break_20",
+  "total_copies",
+  "available_copies",
+  "column_break_23",
+  "location",
+  "rack_number",
+  "section_break_26",
+  "price",
+  "acquisition_date",
+  "condition",
+  "column_break_30",
+  "is_reference_only",
+  "digital_copy_available",
+  "digital_file",
+  "section_break_34",
+  "average_rating",
+  "total_ratings",
+  "popularity_score"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "LIB-BOOK-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "isbn",
+   "fieldtype": "Data",
+   "label": "ISBN",
+   "unique": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "subtitle",
+   "fieldtype": "Data",
+   "label": "Subtitle"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "book_cover",
+   "fieldtype": "Attach Image",
+   "label": "Book Cover"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Authors"
+  },
+  {
+   "fieldname": "authors",
+   "fieldtype": "Table",
+   "label": "Authors",
+   "options": "Book Author"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break",
+   "label": "Publication Details"
+  },
+  {
+   "fieldname": "publisher",
+   "fieldtype": "Link",
+   "label": "Publisher",
+   "options": "Publisher"
+  },
+  {
+   "fieldname": "publication_date",
+   "fieldtype": "Date",
+   "label": "Publication Date"
+  },
+  {
+   "fieldname": "edition",
+   "fieldtype": "Data",
+   "label": "Edition"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Link",
+   "label": "Language",
+   "options": "Language"
+  },
+  {
+   "fieldname": "book_category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Book Category",
+   "options": "Book Category"
+  },
+  {
+   "fieldname": "subcategory",
+   "fieldtype": "Link",
+   "label": "Subcategory",
+   "options": "Book Subcategory"
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break",
+   "label": "Description & Tags"
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Data",
+   "label": "Tags"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_20",
+   "fieldtype": "Section Break",
+   "label": "Inventory"
+  },
+  {
+   "default": "1",
+   "fieldname": "total_copies",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Copies"
+  },
+  {
+   "fieldname": "available_copies",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "is_virtual": 1,
+   "label": "Available Copies"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Library Location"
+  },
+  {
+   "fieldname": "rack_number",
+   "fieldtype": "Data",
+   "label": "Rack Number"
+  },
+  {
+   "fieldname": "section_break_26",
+   "fieldtype": "Section Break",
+   "label": "Acquisition & Condition"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price"
+  },
+  {
+   "fieldname": "acquisition_date",
+   "fieldtype": "Date",
+   "label": "Acquisition Date"
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Select",
+   "label": "Condition",
+   "options": "New\nGood\nFair\nPoor"
+  },
+  {
+   "fieldname": "column_break_30",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_reference_only",
+   "fieldtype": "Check",
+   "label": "Is Reference Only"
+  },
+  {
+   "default": "0",
+   "fieldname": "digital_copy_available",
+   "fieldtype": "Check",
+   "label": "Digital Copy Available"
+  },
+  {
+   "depends_on": "digital_copy_available",
+   "fieldname": "digital_file",
+   "fieldtype": "Attach",
+   "label": "Digital File"
+  },
+  {
+   "fieldname": "section_break_34",
+   "fieldtype": "Section Break",
+   "label": "Ratings & Popularity"
+  },
+  {
+   "fieldname": "average_rating",
+   "fieldtype": "Float",
+   "label": "Average Rating",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_ratings",
+   "fieldtype": "Int",
+   "label": "Total Ratings",
+   "read_only": 1
+  },
+  {
+   "fieldname": "popularity_score",
+   "fieldtype": "Float",
+   "label": "Popularity Score",
+   "precision": "2",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-18 07:49:36.677516",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Book",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Librarian",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Library Member",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

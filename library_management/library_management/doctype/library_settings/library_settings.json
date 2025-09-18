@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "autoname": "Prompt",
+ "creation": "2025-09-18 10:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "library_name",
+  "max_books_per_member",
+  "default_issue_period",
+  "fine_per_day",
+  "enable_reservations",
+  "auto_extend_enabled",
+  "email_notifications",
+  "section_break_8",
+  "library_hours"
+ ],
+ "fields": [
+  {
+   "fieldname": "library_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Library Name",
+   "reqd": 1
+  },
+  {
+   "default": "5",
+   "fieldname": "max_books_per_member",
+   "fieldtype": "Int",
+   "label": "Max Books Per Member"
+  },
+  {
+   "default": "14",
+   "fieldname": "default_issue_period",
+   "fieldtype": "Int",
+   "label": "Default Issue Period (Days)"
+  },
+  {
+   "default": "1.0",
+   "fieldname": "fine_per_day",
+   "fieldtype": "Currency",
+   "label": "Fine Per Day"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_reservations",
+   "fieldtype": "Check",
+   "label": "Enable Reservations"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_extend_enabled",
+   "fieldtype": "Check",
+   "label": "Auto Extend Enabled"
+  },
+  {
+   "default": "1",
+   "fieldname": "email_notifications",
+   "fieldtype": "Check",
+   "label": "Email Notifications"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break",
+   "label": "Library Hours"
+  },
+  {
+   "fieldname": "library_hours",
+   "fieldtype": "Table",
+   "label": "Library Hours",
+   "options": "Library Hours"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-09-18 07:07:43.467421",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Library Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
