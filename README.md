@@ -18,6 +18,7 @@ This repository includes training materials to help you understand Frappe develo
 - Implement parent-child relationships
 - Configure naming series and auto-generated fields
 - Set up calculated fields and validation rules
+- Set up workspace for users
 
 **Reference Documentation**: [DocType Relationships & Data Flow](library_management/docs/01_doctype_relationships.md)
 
