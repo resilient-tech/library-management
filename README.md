@@ -2,39 +2,30 @@
 
 Advanced Library Management Platform
 
-### Installation
+### Training Tasks
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+This repository includes training materials to help you understand Frappe development concepts through practical implementation.
 
-```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app library_management
-```
+#### Task 1: Create DocTypes Based on Entity Relationships
 
-### Contributing
+**Objective**: Create all the necessary DocTypes for the Library Management system based on the defined entity relationships.
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+**Description**: Using the detailed entity relationship diagram and specifications provided in the documentation, you will create DocTypes that form the foundation of the library management system. This includes master data entities (Authors, Books, Members), configuration entities (Settings, Library Hours), and transaction entities (Book Transactions, Fee Collections).
 
-```bash
-cd apps/library_management
-pre-commit install
-```
+**Learning Outcomes**:
+- Understand DocType creation in Frappe
+- Learn about field types and their relationships
+- Implement parent-child relationships
+- Configure naming series and auto-generated fields
+- Set up calculated fields and validation rules
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
+**Reference Documentation**: [DocType Relationships & Data Flow](library_management/docs/01_doctype_relationships.md)
 
-- ruff
-- eslint
-- prettier
-- pyupgrade
-### CI
+**Getting Started**:
+1. Review the entity relationship diagram in the documentation
+2. Start with master entities (Author, Publisher, Language, BookCategory)
+3. Move on to main entities (Book, LibraryMember)
+4. Implement child tables (BookAuthor, MemberPreferences)
+5. Create transaction DocTypes (BookTransaction, FeeCollection)
+6. Add configuration DocTypes (LibrarySettings, LibraryHours)
 
-This app can use GitHub Actions for CI. The following workflows are configured:
-
-- CI: Installs this app and runs unit tests on every push to `develop` branch.
-- Linters: Runs [Frappe Semgrep Rules](https://github.com/frappe/semgrep-rules) and [pip-audit](https://pypi.org/project/pip-audit/) on every pull request.
-
-
-### License
-
-mit
