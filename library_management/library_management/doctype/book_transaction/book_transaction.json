@@ -39,12 +39,13 @@
    "reqd": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "transaction_type",
    "fieldtype": "Select",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Transaction Type",
-   "options": "Issue\nReturn\nRenew\nReserve",
+   "options": "Issue\nReturn\nReserve",
    "reqd": 1
   },
   {
@@ -86,11 +87,13 @@
    "label": "Due Date"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "return_date",
    "fieldtype": "Date",
    "label": "Return Date"
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "renewed_count",
    "fieldtype": "Int",
@@ -101,12 +104,14 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "fine_amount",
    "fieldtype": "Currency",
    "label": "Fine Amount"
   },
   {
+   "allow_on_submit": 1,
    "default": "0",
    "fieldname": "fine_paid",
    "fieldtype": "Check",
@@ -146,6 +151,7 @@
    "options": "User"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "returned_to",
    "fieldtype": "Link",
    "label": "Returned To",
@@ -175,7 +181,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-18 20:20:47.752224",
+ "modified": "2025-09-18 23:13:36.519375",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Book Transaction",
