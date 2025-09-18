@@ -168,8 +168,8 @@
    "fieldname": "available_copies",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "is_virtual": 1,
-   "label": "Available Copies"
+   "label": "Available Copies",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_23",
@@ -257,7 +257,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-18 07:49:36.677516",
+ "modified": "2025-09-18 08:57:19.759018",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Book",

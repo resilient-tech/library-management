@@ -18,6 +18,7 @@ class Book(Document):
 
 		acquisition_date: DF.Date | None
 		authors: DF.Table[BookAuthor]
+		available_copies: DF.Int
 		average_rating: DF.Float
 		book_category: DF.Link | None
 		book_cover: DF.AttachImage | None
@@ -44,21 +45,4 @@ class Book(Document):
 		total_ratings: DF.Int
 	# end: auto-generated types
 
-	@property
-	def available_copies(self):
-		"""Update available copies based on current issues"""
-		if not self.total_copies:
-			self.total_copies = 1
-
-		# Count currently issued books
-		issued_count = frappe.db.count(
-			"Book Transaction",
-			{
-				"book": self.name,
-				"transaction_type": "Issue",
-				"docstatus": 1,
-				"return_date": ["is", "not set"],
-			},
-		)
-
-		return max(0, self.total_copies - issued_count)
+	pass
