@@ -4,6 +4,10 @@
 import frappe
 from frappe.model.document import Document
 
+from library_management.library_management.doctype.book_transaction.book_transaction import (
+	get_issued_book_count,
+)
+
 
 class Book(Document):
 	# begin: auto-generated types
@@ -45,4 +49,6 @@ class Book(Document):
 		total_ratings: DF.Int
 	# end: auto-generated types
 
-	pass
+	# validate authors (at least one author, total contribution 100%, no duplicates)
+	# validate total_copies (greater than 0)
+	# on insert and update, set available_copies = total_copies - issued_count

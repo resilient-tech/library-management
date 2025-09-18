@@ -1,10 +1,15 @@
 # Copyright (c) 2025, Library Management and contributors
 # For license information, please see license.txt
 
+
 import frappe
 from frappe.model.document import Document
-from frappe.utils import nowdate, add_days
-import uuid
+from frappe.utils import add_days, nowdate
+
+from library_management.library_management.doctype.book_transaction.book_transaction import (
+	get_issued_book_count,
+	get_total_fines,
+)
 
 
 class LibraryMember(Document):
@@ -22,7 +27,6 @@ class LibraryMember(Document):
 
 		access_level: DF.Literal["Basic", "Premium", "VIP"]
 		address: DF.Text | None
-		barcode: DF.Data | None
 		current_books_issued: DF.Int
 		date_of_birth: DF.Date | None
 		email: DF.Data | None
@@ -41,4 +45,7 @@ class LibraryMember(Document):
 		profile_picture: DF.AttachImage | None
 		total_fines: DF.Currency
 	# end: auto-generated types
-	pass
+
+	# update current_books_issued and total_fines on validate
+	# set default membership_start_date and membership_end_date on before_insert
+	# set full name method
