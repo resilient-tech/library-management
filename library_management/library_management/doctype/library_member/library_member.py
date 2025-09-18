@@ -46,6 +46,23 @@ class LibraryMember(Document):
 		total_fines: DF.Currency
 	# end: auto-generated types
 
-	# update current_books_issued and total_fines on validate
-	# set default membership_start_date and membership_end_date on before_insert
-	# set full name method
+	def validate(self):
+		self.update_issued_books_count()
+		self.update_total_fines()
+
+	def before_insert(self):
+		if not self.membership_start_date:
+			self.membership_start_date = nowdate()
+
+		if not self.membership_end_date:
+			# Default to 1 year membership
+			self.membership_end_date = add_days(self.membership_start_date, 365)
+
+	def update_issued_books_count(self):
+		self.current_books_issued = get_issued_book_count(member=self.name)
+
+	def update_total_fines(self):
+		self.total_fines = get_total_fines(member=self.name)
+
+	def get_full_name(self):
+		return f"{self.first_name} {self.last_name}"

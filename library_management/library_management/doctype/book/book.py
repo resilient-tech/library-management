@@ -49,6 +49,48 @@ class Book(Document):
 		total_ratings: DF.Int
 	# end: auto-generated types
 
-	# validate authors (at least one author, total contribution 100%, no duplicates)
-	# validate total_copies (greater than 0)
-	# on insert and update, set available_copies = total_copies - issued_count
+	def validate(self):
+		self.validate_authors()
+		self.validate_total_copies()
+		self.update_available_copies()
+
+	def validate_authors(self):
+		if not self.authors:
+			frappe.throw("At least one author is required")
+
+		total_contribution = sum(author.contribution_percentage or 0 for author in self.authors)
+		if total_contribution != 100:
+			frappe.throw(f"Total author contribution must be 100%. Current: {total_contribution}%")
+
+		# Check for duplicate authors
+		author_names = [author.author for author in self.authors]
+		if len(author_names) != len(set(author_names)):
+			frappe.throw("Duplicate authors are not allowed")
+
+	def validate_total_copies(self):
+		if self.total_copies <= 0:
+			frappe.throw("Total copies must be greater than 0")
+
+	def update_available_copies(self):
+		if self.is_new():
+			self.available_copies = self.total_copies
+			return
+
+		issued_count = get_issued_book_count(book=self.name)
+		self.available_copies = self.total_copies - issued_count
+
+	@frappe.whitelist()
+	def get_current_issues(self):
+		return frappe.get_all(
+			"Book Transaction",
+			{
+				"book": self.name,
+				"transaction_type": "Issue",
+				"docstatus": 1,
+				"return_date": ["is", "not set"],
+			},
+			["name", "member", "transaction_date", "due_date"],
+		)
+
+	def is_available(self):
+		return self.available_copies > 0 and not self.is_reference_only
