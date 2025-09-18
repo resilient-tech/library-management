@@ -26,6 +26,8 @@
   "max_books_allowed",
   "current_books_issued",
   "total_fines",
+  "section_break_fveo",
+  "issued_books_html",
   "section_break_21",
   "access_level",
   "emergency_contact",
@@ -111,6 +113,7 @@
   {
    "fieldname": "section_break_13",
    "fieldtype": "Section Break",
+   "hide_border": 1,
    "label": "Membership Details"
   },
   {
@@ -155,6 +158,12 @@
    "read_only": 1
   },
   {
+   "fieldname": "issued_books_html",
+   "fieldtype": "Text Editor",
+   "is_virtual": 1,
+   "label": "Issued Books"
+  },
+  {
    "fieldname": "section_break_21",
    "fieldtype": "Section Break",
    "label": "Additional Details"
@@ -192,11 +201,15 @@
    "fieldtype": "Table",
    "label": "Member Preferences",
    "options": "Member Preferences"
+  },
+  {
+   "fieldname": "section_break_fveo",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-18 20:20:31.845115",
+ "modified": "2025-09-19 00:27:30.545682",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Member",

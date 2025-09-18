@@ -5,6 +5,7 @@
 import frappe
 from frappe.model.document import Document
 from frappe.utils import add_days, nowdate
+from pypika import Order
 
 from library_management.library_management.doctype.book_transaction.book_transaction import (
 	get_issued_book_count,
@@ -50,6 +51,9 @@ class LibraryMember(Document):
 		self.update_issued_books_count()
 		self.update_total_fines()
 
+	def onload(self):
+		self.populate_issued_books()
+
 	def before_insert(self):
 		if not self.membership_start_date:
 			self.membership_start_date = nowdate()
@@ -64,5 +68,41 @@ class LibraryMember(Document):
 	def update_total_fines(self):
 		self.total_fines = get_total_fines(member=self.name)
 
+	def populate_issued_books(self):
+		"""Populate issued books data for the HTML field"""
+		if not self.name:
+			self.issued_books = []
+			return
+
+		bt = frappe.qb.DocType("Book Transaction")
+		b = frappe.qb.DocType("Book")
+
+		issued_transactions = (
+			frappe.qb.from_(bt)
+			.left_join(b)
+			.on(bt.book == b.name)
+			.select(
+				bt.name.as_("transaction_name"),
+				bt.book,
+				bt.transaction_date,
+				bt.due_date,
+				b.title.as_("book_title"),
+				b.isbn,
+			)
+			.where((bt.member == self.name) & (bt.transaction_type == "Issue") & (bt.docstatus == 1))
+			.orderby(bt.transaction_date, order=Order.desc)
+			.run(as_dict=True)
+		)
+
+		self.issued_books = issued_transactions
+		self.issued_books_html = frappe.render_template(
+			"templates/includes/issued_books_list.html", {"doc": self}
+		)
+
 	def get_full_name(self):
 		return f"{self.first_name} {self.last_name}"
+
+	def refresh_issued_books(self):
+		"""Refresh the issued books data and return updated HTML"""
+		self.populate_issued_books()
+		return self.issued_books
