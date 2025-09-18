@@ -7,6 +7,8 @@ app_license = "mit"
 
 export_python_type_annotations = True
 
+after_migrate = "library_management.library_management.create_sample_data.run"
+
 # Apps
 # ------------------
 
