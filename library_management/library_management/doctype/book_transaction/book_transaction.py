@@ -36,11 +36,31 @@ class BookTransaction(Document):
 		transaction_type: DF.Literal["Issue", "Return", "Reserve"]
 	# end: auto-generated types
 
-	# TODO
-	# Analyze existing methods
-	# Discuss scope of improvements
-	# setup their controller methods
-	# Create workflow actions from the methods
+	def validate(self):
+		self.validate_member_status()
+		self.validate_book_availability()
+		self.set_default_values()
+		self.calculate_fine()
+
+	def before_submit(self):
+		if self.transaction_type == "Issue":
+			self.validate_issue_limits()
+			self.set_issued_by()
+
+	def on_update_after_submit(self):
+		if self.transaction_type == "Return":
+			self.set_returned_to()
+			self.calculate_fine()
+			self.update_book_availability()
+			self.update_member_statistics()
+
+	def on_submit(self):
+		self.update_book_availability()
+		self.update_member_statistics()
+
+	def on_cancel(self):
+		self.update_book_availability()
+		self.update_member_statistics()
 
 	def validate_member_status(self):
 		member_doc = frappe.get_doc("Library Member", self.member)
