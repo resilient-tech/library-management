@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:author_name",
  "creation": "2025-09-18 10:00:00",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -18,7 +19,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Author Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "biography",
@@ -43,10 +45,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-18 07:49:43.700186",
+ "modified": "2025-09-18 21:32:43.162588",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Author",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

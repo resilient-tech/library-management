@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:publisher_name",
  "creation": "2025-09-18 10:00:00",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -19,7 +20,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Publisher Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "address",
@@ -52,10 +54,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-18 07:49:56.001125",
+ "modified": "2025-09-18 21:33:16.386438",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Publisher",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
