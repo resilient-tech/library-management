@@ -64,6 +64,7 @@ def create_library_settings():
 	doc.library_name = "Bharatiya Vigyan Bhavan Library"
 	doc.max_books_per_member = 5
 	doc.default_issue_period = 14
+	doc.membership_fees = 500.0
 	doc.fine_per_day = 2.0
 	doc.enable_reservations = 1
 	doc.auto_extend_enabled = 0

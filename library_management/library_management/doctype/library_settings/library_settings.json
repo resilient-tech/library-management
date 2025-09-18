@@ -9,6 +9,7 @@
   "library_name",
   "max_books_per_member",
   "default_issue_period",
+  "membership_fees",
   "fine_per_day",
   "enable_reservations",
   "auto_extend_enabled",
@@ -70,12 +71,18 @@
    "fieldtype": "Table",
    "label": "Library Hours",
    "options": "Library Hours"
+  },
+  {
+   "default": "1.0",
+   "fieldname": "membership_fees",
+   "fieldtype": "Currency",
+   "label": "Membership Fees"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-09-18 07:07:43.467421",
+ "modified": "2025-09-18 21:16:17.113544",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Settings",
