@@ -11,6 +11,17 @@ after_migrate = "library_management.library_management.create_sample_data.run"
 
 fixtures = [{"dt": "Workflow"}, {"dt": "Workflow State"}, {"dt": "Workflow Action Master"}]
 
+workflow_methods = [
+	{
+		"name": "Renew a Book",
+		"method": "library_management.library_management.doctype.book_transaction.book_transaction.renew_book",
+	},
+	{
+		"name": "Return a Book",
+		"method": "library_management.library_management.doctype.book_transaction.book_transaction.return_book",
+	},
+]
+
 # Apps
 # ------------------
 

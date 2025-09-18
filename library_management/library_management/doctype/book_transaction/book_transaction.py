@@ -177,3 +177,11 @@ def get_total_fines(member):
 	)[0][0]
 
 	return total_fines
+
+
+def renew_book(doc):
+	pass
+
+
+def return_book():
+	pass
