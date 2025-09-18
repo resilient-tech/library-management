@@ -28,7 +28,6 @@
   "total_fines",
   "section_break_21",
   "access_level",
-  "barcode",
   "emergency_contact",
   "emergency_name",
   "emergency_phone",
@@ -168,12 +167,6 @@
    "options": "Basic\nPremium\nVIP"
   },
   {
-   "fieldname": "barcode",
-   "fieldtype": "Data",
-   "label": "Barcode",
-   "read_only": 1
-  },
-  {
    "fieldname": "emergency_contact",
    "fieldtype": "Section Break",
    "label": "Emergency Contact"
@@ -203,7 +196,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-18 07:50:20.923852",
+ "modified": "2025-09-18 20:20:31.845115",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Member",

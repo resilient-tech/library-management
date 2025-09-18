@@ -12,7 +12,6 @@
   "column_break_4",
   "member",
   "book",
-  "barcode_scanned",
   "section_break_8",
   "due_date",
   "return_date",
@@ -74,12 +73,6 @@
    "label": "Book",
    "options": "Book",
    "reqd": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "barcode_scanned",
-   "fieldtype": "Check",
-   "label": "Barcode Scanned"
   },
   {
    "fieldname": "section_break_8",
@@ -182,7 +175,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-18 07:50:33.645021",
+ "modified": "2025-09-18 20:20:47.752224",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Book Transaction",

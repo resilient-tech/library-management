@@ -120,7 +120,6 @@ erDiagram
         data emergency_name
         data emergency_phone
         select access_level
-        data barcode "auto-generated"
     }
     
     MemberPreferences {
@@ -146,7 +145,6 @@ erDiagram
         select condition_on_issue
         select condition_on_return
         text notes
-        check barcode_scanned
         check auto_extended
     }
     
