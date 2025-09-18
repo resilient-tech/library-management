@@ -48,3 +48,51 @@ This repository includes training materials to help you understand Frappe develo
 6. Create custom workflow actions with proper validation and business logic
 7. Test the refactored code with various transaction scenarios
 
+#### Task 4: Create Interactive Reports with Actions
+
+**Objective**: Build comprehensive, actionable reports for library management operations with filtering capabilities and bulk action features.
+
+**Description**: Create interactive query reports that provide librarians with powerful tools to monitor issued books, manage overdue items, and perform bulk operations. Implement client-side interactivity with checkboxes, filters, and action buttons for efficient library management workflows.
+
+**Learning Outcomes**:
+- Understand Frappe's Query Report system and architecture
+- Implement server-side report logic with complex SQL queries
+- Create client-side JavaScript for interactive report features
+- Build actionable reports with bulk operations
+- Use checkboxColumn and get_checked_items for row selection
+- Implement report filters and conditional formatting
+- Handle server-side methods for report actions
+
+**Reference Files**: 
+- [Issued Books Report](library_management/library_management/report/issued_books_report/)
+- [BookTransaction Controller](library_management/library_management/doctype/book_transaction/book_transaction.py)
+
+**Report Features to Implement**:
+1. **Comprehensive Filtering**: Member, Book, Date Range, Status-based filtering
+2. **Visual Indicators**: Color-coded status display for overdue/due soon items
+3. **Bulk Actions**: Send reminder emails, bulk return books, generate fine reports
+4. **Export Functionality**: Export selected records to CSV format
+5. **Row Selection**: Checkbox column for multi-row operations
+6. **Real-time Calculations**: Days overdue, fine amounts, status indicators
+
+**Interactive Actions**:
+1. **Send Reminder Emails**: Notify members about due/overdue books
+2. **Bulk Return Books**: Process multiple book returns simultaneously
+3. **Generate Fine Report**: Create fine collection reports for overdue items
+4. **Export Selected**: Download filtered data as CSV file
+
+**Getting Started**:
+1. Create the report directory structure with required files
+2. Implement the Python report logic with SQL queries and data processing
+3. Build JavaScript functionality for filters and interactive features
+4. Add checkboxColumn and implement get_checked_items usage
+5. Create server-side methods for bulk actions (send_reminder_emails, bulk_return_books)
+6. Implement conditional formatting and visual indicators
+7. Test report functionality with various data scenarios and bulk operations
+
+**Advanced Features**:
+- Custom formatters for status and numeric fields
+- Dynamic action button states based on selection
+- Error handling for bulk operations
+- Integration with email templates and PDF generation
+

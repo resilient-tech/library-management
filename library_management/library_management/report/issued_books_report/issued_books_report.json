@@ -1,0 +1,32 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2025-09-19 10:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "",
+ "modified": "2025-09-19 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Issued Books Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "",
+ "ref_doctype": "Book Transaction",
+ "report_name": "Issued Books Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Library User"
+  },
+  {
+   "role": "Library Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ]
+}
