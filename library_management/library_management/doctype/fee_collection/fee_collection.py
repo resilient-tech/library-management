@@ -50,15 +50,14 @@ class FeeCollection(Document):
 		self.validate_payment_details()
 
 	def on_submit(self):
-		self.update_member_fines()
 		self.update_transaction_fines()
+		self.update_member_fines()
 
 	def on_cancel(self):
 		self.reverse_member_fines()
 		self.reverse_transaction_fines()
 
 	def calculate_total_amount(self):
-		"""Calculate total amount from individual fee components"""
 		total = (
 			(self.membership_fee or 0)
 			+ (self.late_fee or 0)
@@ -71,7 +70,6 @@ class FeeCollection(Document):
 		self.total_amount = total
 
 	def validate_member_exists(self):
-		"""Validate if member exists and is active"""
 		if not frappe.db.exists("Library Member", self.member):
 			frappe.throw(_("Library Member {0} does not exist").format(self.member))
 
@@ -80,7 +78,6 @@ class FeeCollection(Document):
 			frappe.throw(_("Cannot collect fees for cancelled member {0}").format(self.member))
 
 	def validate_payment_details(self):
-		"""Validate payment method specific details"""
 		if self.payment_method in ["Card", "UPI", "Net Banking", "Cheque", "Demand Draft"]:
 			if not self.reference_number:
 				frappe.throw(_("Reference Number is required for {0} payment").format(self.payment_method))
@@ -89,33 +86,28 @@ class FeeCollection(Document):
 			frappe.throw(_("Net amount must be greater than zero"))
 
 	def set_collected_by(self):
-		"""Set the user who collected the payment"""
 		if not self.collected_by:
 			self.collected_by = frappe.session.user
 
 	def update_member_fines(self):
-		"""Update member's total fines after payment"""
 		if self.payment_type == "Fine Payment" and self.fine_amount > 0:
 			member_doc = frappe.get_doc("Library Member", self.member)
 			member_doc.update_total_fines()
 			member_doc.save(ignore_permissions=True)
 
 	def update_transaction_fines(self):
-		"""Mark related transaction fines as paid"""
 		if self.payment_type == "Fine Payment":
 			for fine_detail in self.fine_details:
 				if fine_detail.transaction_id:
 					frappe.db.set_value("Book Transaction", fine_detail.transaction_id, "fine_paid", 1)
 
 	def reverse_member_fines(self):
-		"""Reverse member fines on cancellation"""
 		if self.payment_type == "Fine Payment":
 			member_doc = frappe.get_doc("Library Member", self.member)
 			member_doc.update_total_fines()
 			member_doc.save(ignore_permissions=True)
 
 	def reverse_transaction_fines(self):
-		"""Reverse transaction fine payments on cancellation"""
 		if self.payment_type == "Fine Payment":
 			for fine_detail in self.fine_details:
 				if fine_detail.transaction_id:
@@ -151,7 +143,6 @@ class FeeCollection(Document):
 
 	@frappe.whitelist()
 	def load_outstanding_fines(self):
-		"""Load outstanding fines into the fine details table"""
 		outstanding_fines = self.get_outstanding_fines()
 
 		# Clear existing fine details
