@@ -6,10 +6,10 @@ import frappe
 from frappe.model.document import Document
 from frappe.utils import add_days, nowdate
 
-from library_management.library_management.doctype.book_transaction.book_transaction import (
-	get_issued_book_count,
-	get_total_fines,
-)
+# from library_management.library_management.doctype.book_transaction.book_transaction import (
+	# get_issued_book_count,
+	# get_total_fines,
+# )
 
 
 class LibraryMember(Document):

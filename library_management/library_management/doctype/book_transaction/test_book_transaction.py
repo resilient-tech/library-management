@@ -5,10 +5,10 @@ import frappe
 from frappe.tests import IntegrationTestCase
 from frappe.utils import add_days, getdate, nowdate
 
-from library_management.library_management.doctype.book_transaction.book_transaction import (
-	get_issued_book_count,
-	get_total_fines,
-)
+# from library_management.library_management.doctype.book_transaction.book_transaction import (
+# 	get_issued_book_count,
+# 	get_total_fines,
+# )
 
 # On IntegrationTestCase, the doctype test records and all
 # link-field test record dependencies are recursively loaded

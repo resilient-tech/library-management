@@ -4,9 +4,9 @@
 import frappe
 from frappe.model.document import Document
 
-from library_management.library_management.doctype.book_transaction.book_transaction import (
-	get_issued_book_count,
-)
+# from library_management.library_management.doctype.book_transaction.book_transaction import (
+# 	get_issued_book_count,
+# )
 
 
 class Book(Document):
@@ -17,7 +17,6 @@ class Book(Document):
 
 	if TYPE_CHECKING:
 		from frappe.types import DF
-
 		from library_management.library_management.doctype.book_author.book_author import BookAuthor
 
 		acquisition_date: DF.Date | None
@@ -34,6 +33,7 @@ class Book(Document):
 		is_reference_only: DF.Check
 		isbn: DF.Data | None
 		language: DF.Link | None
+		library_branch: DF.Link | None
 		location: DF.Link | None
 		naming_series: DF.Literal["LIB-BOOK-.#####"]
 		popularity_score: DF.Float
